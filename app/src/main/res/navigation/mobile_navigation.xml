@@ -10,19 +10,13 @@
         android:name="com.tll.pexelsapp.ui.home.HomeFragment"
         android:label="@string/title"
         tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_dashboard"
-            app:destination="@id/navigation_dashboard" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_bookmarks"
         android:name="com.tll.pexelsapp.ui.bookmarks.BookmarksFragment"
         android:label="@string/title"
         tools:layout="@layout/fragment_bookmarks" >
-        <action
-            android:id="@+id/action_navigation_dashboard_to_navigation_home"
-            app:destination="@id/navigation_home" />
     </fragment>
 
 </navigation>
