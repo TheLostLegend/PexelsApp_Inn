@@ -1,5 +1,7 @@
 package com.tll.pexelsapp
 
+import android.app.Application
+import android.content.Context
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +10,21 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.tll.pexelsapp.databinding.ActivityMainBinding
+
+//class Singleton: Application(){
+//    lateinit var appComponent: AppComponent
+//
+//    override fun onCreate() {
+//        super.onCreate()
+//        appComponent = DaggerAppComponent.create()
+//    }
+//}
+//
+//val Context.appComponent: AppComponent
+//    get() = when (this){
+//        is Singleton -> appComponent
+//        else -> this.applicationContext.appComponent
+//    }
 
 class MainActivity : AppCompatActivity() {
 

@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.tll.pexelsapp.databinding.FragmentBookmarksBinding
+import javax.inject.Inject
 
 class BookmarksFragment : Fragment() {
 
@@ -15,16 +17,17 @@ class BookmarksFragment : Fragment() {
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get()=_binding!!
+    private val binding get() = _binding!!
+
+//    @Inject
+//    lateinit var bookmarksViewModel: ViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater ,
         container: ViewGroup? ,
         savedInstanceState: Bundle?
     ): View {
-        val bookmarksViewModel=
-            ViewModelProvider(this)[BookmarksViewModel::class.java]
-
+        val bookmarksViewModel = ViewModelProvider(this)[BookmarksViewModel::class.java]
         _binding = FragmentBookmarksBinding.inflate(inflater , container , false)
         val root: View=binding.root
 
