@@ -1,18 +1,8 @@
 package com.tll.pexelsapp.dagger
 
-import android.content.Context
-import androidx.lifecycle.ViewModel
-import com.tll.pexelsapp.ui.bookmarks.BookmarksViewModel
-import com.tll.pexelsapp.ui.home.HomeViewModel
+import com.tll.pexelsapp.photoSettings.usecase.UseCaseModule
 import dagger.Component
-import dagger.Module
 
-@Component
-interface AppComponent {
+@Component(modules = [UseCaseModule::class])
+interface AppComponent
 
-}
-
-@Module
-object AppModule{
-
-}

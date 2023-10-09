@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
     id("com.google.devtools.ksp")
 }
 
@@ -56,10 +55,10 @@ dependencies {
 
     //Dagger 2
     implementation("com.google.dagger:dagger:2.39.1")
-    kapt("com.google.dagger:dagger-compiler:2.39.1")
+    ksp("com.google.dagger:dagger-compiler:2.39.1")
 
     // Room
-    kapt("androidx.room:room-compiler:2.5.2")
+    ksp("androidx.room:room-compiler:2.5.2")
     implementation("androidx.room:room-runtime:2.5.2")
     implementation("androidx.room:room-rxjava2:2.5.2")
 

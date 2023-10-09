@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.tll.pexelsapp.databinding.ActivityMainBinding
 import com.tll.pexelsapp.databinding.FragmentBookmarksBinding
 import javax.inject.Inject
 
@@ -19,9 +20,6 @@ class BookmarksFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-//    @Inject
-//    lateinit var bookmarksViewModel: ViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater ,
         container: ViewGroup? ,
@@ -32,6 +30,7 @@ class BookmarksFragment : Fragment() {
         val root: View=binding.root
 
         val textView: TextView=binding.textBookmarks
+
         bookmarksViewModel.text.observe(viewLifecycleOwner) {
             textView.text=it
         }
