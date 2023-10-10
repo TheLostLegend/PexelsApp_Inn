@@ -9,22 +9,19 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.tll.pexelsapp.dagger.AppComponent
 import com.tll.pexelsapp.databinding.ActivityMainBinding
 
-//class Singleton: Application(){
-//    lateinit var appComponent: AppComponent
-//
+class Singleton: Application(){
+    lateinit var appComponent: AppComponent
+
 //    override fun onCreate() {
 //        super.onCreate()
 //        appComponent = DaggerAppComponent.create()
 //    }
-//}
-//
-//val Context.appComponent: AppComponent
-//    get() = when (this){
-//        is Singleton -> appComponent
-//        else -> this.applicationContext.appComponent
-//    }
+}
+
+
 
 class MainActivity : AppCompatActivity() {
 

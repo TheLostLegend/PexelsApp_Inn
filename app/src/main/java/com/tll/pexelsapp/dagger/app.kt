@@ -1,8 +1,8 @@
 package com.tll.pexelsapp.dagger
 
-import com.tll.pexelsapp.photoSettings.usecase.UseCaseModule
+import com.tll.pexelsapp.photoSettings.usecase.UseCaseDModule
 import dagger.Component
 
-@Component(modules = [UseCaseModule::class])
+@Component(modules = [UseCaseDModule::class])
 interface AppComponent
 

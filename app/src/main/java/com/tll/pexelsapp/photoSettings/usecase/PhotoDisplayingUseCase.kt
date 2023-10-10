@@ -9,8 +9,9 @@ import com.tll.pexelsapp.photoSettings.tools.PhotoUrlGenerator
 import com.tll.pexelsapp.photoSettings.tools.ResolutionManager
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class PhotoDisplayingUseCase(
+class PhotoDisplayingUseCase @Inject constructor(
     private val repository: Repository ,
     private val resolutionManager: ResolutionManager
 ) {

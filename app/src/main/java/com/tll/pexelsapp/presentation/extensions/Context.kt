@@ -3,6 +3,8 @@ package com.tll.pexelsapp.presentation.extensions
 import android.content.Context
 import android.util.DisplayMetrics
 import android.view.WindowManager
+import com.tll.pexelsapp.Singleton
+import com.tll.pexelsapp.dagger.AppComponent
 
 /**
  * Getting clean pixels from Density-independent Pixels
@@ -46,3 +48,9 @@ fun Context.getScreenHeightInPixels(): Int {
 fun Context.windowManager(): WindowManager {
     return this.getSystemService(Context.WINDOW_SERVICE) as WindowManager
 }
+
+val Context.appComponent: AppComponent
+    get() = when (this){
+        is Singleton -> appComponent
+        else -> this.applicationContext.appComponent
+    }

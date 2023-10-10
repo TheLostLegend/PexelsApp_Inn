@@ -6,8 +6,9 @@ import com.tll.pexelsapp.photoSettings.entity.PhotoFavoriteEntity
 import com.tll.pexelsapp.photoSettings.mapper.PhotoConverter
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class PhotoFavoritesUseCase(
+class PhotoFavoritesUseCase @Inject constructor(
     private val repository: Repository
 ) {
 

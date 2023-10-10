@@ -3,8 +3,9 @@ package com.tll.pexelsapp.photoSettings.tools
 import android.content.Context
 import android.util.DisplayMetrics
 import com.tll.pexelsapp.presentation.extensions.windowManager
+import javax.inject.Inject
 
-class ResolutionManager(private val context: Context) {
+class ResolutionManager @Inject constructor(private val context: Context) {
 
     val screenResolution: Resolution by lazy {
         val metrics = DisplayMetrics()

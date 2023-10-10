@@ -4,8 +4,9 @@ import com.tll.pexelsapp.data.datasource.local.LocalDataSource
 import com.tll.pexelsapp.data.datasource.remote.RemoteDataSource
 import com.tll.pexelsapp.data.db.entity.PhotoDbEntity
 import com.tll.pexelsapp.data.dto.SearchResultDto
+import javax.inject.Inject
 
-class Repository(
+class Repository @Inject constructor(
     private val localDataSource: LocalDataSource,
     private val remoteDataSource: RemoteDataSource
 ) {

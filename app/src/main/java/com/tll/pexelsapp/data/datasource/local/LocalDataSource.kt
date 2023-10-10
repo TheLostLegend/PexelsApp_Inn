@@ -3,8 +3,9 @@ package com.tll.pexelsapp.data.datasource.local
 
 import com.tll.pexelsapp.data.db.AppDatabase
 import com.tll.pexelsapp.data.db.entity.PhotoDbEntity
+import javax.inject.Inject
 
-class LocalDataSource(private val appDatabase: AppDatabase) {
+class LocalDataSource @Inject constructor(private val appDatabase: AppDatabase) {
 
     suspend fun addPhotoToFavorites(photoEntity: PhotoDbEntity) {
         appDatabase.photoDao().insert(photoEntity)

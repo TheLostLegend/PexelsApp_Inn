@@ -2,8 +2,9 @@ package com.tll.pexelsapp.data.datasource.remote
 
 import com.tll.pexelsapp.data.dto.SearchResultDto
 import com.tll.pexelsapp.data.network.PexelsApi
+import javax.inject.Inject
 
-class RemoteDataSource(private val api: PexelsApi) {
+class RemoteDataSource @Inject constructor(private val api: PexelsApi) {
 
     suspend fun searchPhotos(query: String, page: Int, perPage: Int): SearchResultDto? {
         val call = api.searchPhotoByQueryCall(query, page, perPage)

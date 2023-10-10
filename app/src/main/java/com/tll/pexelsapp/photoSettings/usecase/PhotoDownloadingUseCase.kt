@@ -12,8 +12,9 @@ import java.io.File
 import java.net.URI
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
 
-class PhotoDownloadingUseCase(
+class PhotoDownloadingUseCase @Inject constructor(
     private val context: Context ,
     private val resolutionManager: ResolutionManager
 ) {
