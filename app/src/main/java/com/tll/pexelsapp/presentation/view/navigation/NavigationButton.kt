@@ -6,8 +6,8 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
-import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.tll.pexelsapp.R
 import com.tll.pexelsapp.databinding.ViewNavigationButtonBinding.bind
 import com.tll.pexelsapp.presentation.extensions.measureWidth
@@ -16,16 +16,14 @@ class NavigationButton @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
-    title: String? = null,
     @DrawableRes iconRes: Int? = null,
     var onClickAction: (() -> Unit)? = null
-) : LinearLayout(context, attrs, defStyleAttr) {
+) : ConstraintLayout(context, attrs, defStyleAttr) {
 
     private val titleWidth: Int by lazy { bind(this).btnTitleTv.measureWidth() }
 
     init {
         View.inflate(context, R.layout.view_navigation_button, this)
-        title?.let { bind(this).btnTitleTv.text = it }
         iconRes?.let { bind(this).btnBgIv.setImageResource(it) }
     }
 

@@ -16,8 +16,9 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
+import com.google.android.material.appbar.AppBarLayout
 import com.tll.pexelsapp.R
-import com.tll.pexelsapp.databinding.LayoutToolbarBinding.bind
+import com.tll.pexelsapp.databinding.LayoutToolbarBinding
 import com.tll.pexelsapp.presentation.view.PlaceholderView
 import java.io.Serializable
 
@@ -32,11 +33,10 @@ abstract class BaseFragment(
     protected abstract val toolbarTitle: String?
     protected abstract val placeholderView: PlaceholderView?
     protected abstract val contentView: View?
-
-
-//    private val toolbarView: AppBarLayout? by lazy { bind(BaseFragment).toolbarContainer }
-
     private var onPermissionGrantedAction: (() -> Unit)? = null
+
+    private var _binding: LayoutToolbarBinding?=null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,6 +44,15 @@ abstract class BaseFragment(
         savedInstanceState: Bundle?
     ): View? {
         setupSystemBars()
+        _binding = LayoutToolbarBinding.inflate(inflater , container , false)
+        val toolbarView: AppBarLayout? by lazy { binding.toolbarContainer }
+        toolbarView?.let {
+            binding.toolbarTitleTv.text = toolbarTitle ?: ""
+            binding.backIv.isVisible = hasToolbarBackButton
+            if (hasToolbarBackButton) {
+                binding.backIv.setOnClickListener { navigateBack() }
+            }
+        }
         return inflater.inflate(layoutResId, container, false)
     }
 
@@ -52,7 +61,6 @@ abstract class BaseFragment(
 
         initViews()
         initListeners()
-//        initToolbar()
         initViewModelObserving()
         doInitialCalls()
     }
@@ -82,6 +90,7 @@ abstract class BaseFragment(
                     placeholderView?.setState(PlaceholderView.PlaceholderState.EMPTY)
                     contentView?.isVisible = false
                 }
+                else -> {}
             }
         })
     }
@@ -121,16 +130,6 @@ abstract class BaseFragment(
             onPermissionGrantedAction = null
         }
     }
-
-//    private fun initToolbar() {
-//        toolbarView?.let {
-//            toolbar_container.toolbar_title_tv.text = toolbarTitle ?: ""
-//            toolbar_container.back_iv.isVisible = hasToolbarBackButton
-//            if (hasToolbarBackButton) {
-//                toolbar_container.back_iv.setOnClickListener { navigateBack() }
-//            }
-//        }
-//    }
 
     private fun setupSystemBars() {
         activity?.window?.statusBarColor = Color.WHITE

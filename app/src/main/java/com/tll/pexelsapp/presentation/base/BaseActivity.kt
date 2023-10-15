@@ -1,6 +1,8 @@
 package com.tll.pexelsapp.presentation.base
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
@@ -16,17 +18,20 @@ abstract class BaseActivity(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        try {
         setContentView(layoutResId)
+        } catch (e:Exception) {
+            Log.e(TAG, "onCreateView", e);
+            //throw e;
+        }
 
-        initViews()
         initListeners()
         initViewModelObserving()
+
     }
 
     open fun hideNavigation() {}
     open fun showNavigation() {}
-
-    protected open fun initViews() {}
     protected open fun initListeners() {}
     protected open fun initViewModelObserving() {}
 
